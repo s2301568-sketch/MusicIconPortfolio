@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Miseducation of Ms. Lauryn Hill</title>
+</head>
+<body>
+
+    <style> 
+            body {
+                background: linear-gradient(rgb(0, 0, 0), rgb(37, 16, 2));
+                background-attachment: fixed;
+                background-repeat: no repeat;
+            }
+
+            .table {
+                display: flex;
+                margin-left: 650px;
+                margin-top: 40px;
+                background-color: rgb(214, 212, 212);
+                text-align: center;
+                width: 600px;
+                overflow: hidden;
+                position: relative;
+            }
+
+             nav {
+            position: fixed; top:0; left:0; right:0; z-index:1000;
+            height: 52px; display: flex; justify-content: space-between; align-items: center;
+            padding: 0 2rem;
+            background: rgb(0, 0, 0);
+            border-bottom: 1px solid rgba(255, 174, 0, 0.349);
+            }
+
+            .nav-links { list-style: none; display: flex; align-items: center; gap: 2rem; }
+            .nav-links a { text-decoration: none; color: white ; font-size: .78rem; font-family: Arial, Helvetica, sans-serif; }
+            .nav-brand img { height: 100px; width: auto; display: block; }
+
+
+
+    </style>
+
+  <p id="text-color-red">The Miseducation</p>
+  <p id="text-underline">Ms. Lauryn Hill</p>
+
+ <div style="display: flex; justify-content: center; align-items: center; height: 30vh;">
+    <video width="980" height="400" controls>
+        <source src="Doo Wop.mp4" type="video/mp4">
+    </video>
+</div>
+<br>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 100px; ">
+  <audio controls>
+    <source src="Lauryn Hill - Doo Wop.mp3" type="audio/mpeg">
+  </audio><br>
+    </div>  
+
+  <br> 
+  <table border="1" class="table">
+    <th>No.    </th>
+    <th>Artist </th>
+    <th>Album  </th>
+    <th>Song   </th>
+    <th>Play   </th>
+    <th>Button </th>
+    <tr> 
+        <td>1                 </td>
+        <td>Marvin Gaye       </td>
+        <td>Midnight Love     </td>
+        <td>Sexual Healing    </td>
+        <td> 
+            <audio controls>
+                <source src="Marvin Gaye - Sexual Healing.mp3" type="audio/mpeg">
+            </audio>
+         <td>Vote              </td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>2                                </td>
+        <td>Prince                           </td>
+        <td>Around The World In A Day        </td>
+        <td>Paisley Park                     </td>
+        <td>
+            <audio controls> 
+                <source src="Paisley Park.mp3" type="audio/mpeg">
+            </audio>
+        <td>Vote                             </td>
+        </td>
+    </tr>
+</table>
+  <script>
+    alert('Welcome to the Miseducation of Ms. Lauryn Hill');
+    document.getElementById("text-color-red").style.color = "white";
+    document.getElementById("text-color-red").style.marginTop = "70px";
+    document.getElementById("text-color-red").style.textAlign = "center";
+    document.getElementById("text-color-red").style.fontSize = "50px";
+    document.getElementById("text-underline").style.textDecoration = "underline";
+    document.getElementById("text-underline").style.textAlign = "center";
+    document.getElementById("text-underline").style.fontSize = "20px";
+  </script>
+
+    <nav>
+        <a href="#" class="nav-brand"><img src="logo.png" alt="Logo"></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+</body>
+</html>
