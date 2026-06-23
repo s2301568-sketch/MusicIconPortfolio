@@ -5,25 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lauryn Hill — Fan Tribute Portfolio</title>
 
-  <!-- Google Fonts: a serif display font + a monospace utility font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Our own stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Leaflet: a free, lightweight map library (this is what makes the
-       Tours map work, and lets us theme it dark/black instead of Google's
-       default light style) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
-  <!-- ============ NAVBAR ============ -->
-  <!-- Notice: NO href="#section" links. We use data-target + JS instead,
-       exactly like you asked, so the navbar scrolls with JavaScript. -->
   <nav>
     <div class="logo">Lauryn Hill</div>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
@@ -37,7 +29,6 @@
     </ul>
   </nav>
 
-  <!-- ============ 1. HERO SECTION ============ -->
 <section class="hero" id="hero">
     <div class="hero-left">
       <p class="overline">Artist · Songwriter · Fan Tribute</p>
@@ -81,7 +72,7 @@
     </div>
   </section>
 
-  <!-- ============ 2. ABOUT SECTION ============ -->
+ 
   <section class="about" id="about">
     <div class="section-header">
       <h2 class="section-title">About</h2>
@@ -103,17 +94,11 @@
     </div>
   </section>
 
-  <!-- ============ 3. DISCOGRAPHY SECTION ============ -->
   <section class="tracklist-section" id="discography">
     <div class="section-header">
       <h2 class="section-title">The Miseducation of Lauryn Hill</h2>
       <span class="section-sub">1998 | 14 Tracks</span>
     </div>
-
-    <!-- Each track now has a play button + progress bar.
-         There's no real audio file yet — the <audio> tag's "src" is
-         empty. When you have an MP3, just fill in src="yourfile.mp3"
-         and it will work immediately, no other changes needed. -->
     <div class="tracklist">
       <div class="track" data-track="1">
         <button class="play-btn" aria-label="Play Intro">▶</button>
@@ -1521,18 +1506,16 @@
         </div>
       </div>
     </div>
+    <p class="tip-note">Tip: Please rerfesh the page to reset the playback.</p>
   </section>
 
-  <!-- ============ 4. VIDEOS SECTION ============ -->
+
   <section class="videos" id="videos">
     <div class="section-header">
       <h2 class="section-title">Performances</h2>
-      <span class="section-sub">Music Videos &amp; Live Sets</span>
+      <span class="section-sub">Music Videos & Live Sets</span>
     </div>
-
-    <!-- Each card is a 16:9 box. Replace the YouTube "src" links with
-         real video URLs later — embedding a YouTube link is just an
-         <iframe> pointed at https://www.youtube.com/embed/VIDEO_ID -->
+ 
     <div class="video-grid">
       <div class="video-card">
         <div class="video-frame">
@@ -1542,7 +1525,6 @@
             loading="lazy"
             allowfullscreen
         ></iframe>
-          <div class="video-placeholder">▶ Add video URL</div>
         </div>
         <p class="video-caption">Doo Wop (That Thing) — Official Video</p>
       </div>
@@ -1555,7 +1537,6 @@
           loading="lazy"
           allowfullscreen
         ></iframe>
-          <div class="video-placeholder">▶ Add video URL</div>
         </div>
         <p class="video-caption">Ex-Factor — Official Video</p>
       </div>
@@ -1568,7 +1549,6 @@
           loading="lazy"
           allowfullscreen
         ></iframe>
-          <div class="video-placeholder">▶ Add video URL</div>
         </div>
         <p class="video-caption">MTV Unplugged No. 2.0 — Live</p>
       </div>
@@ -1578,7 +1558,6 @@
     If you are the rightful owner of any content displayed here and wish for it to be removed, please contact the administrator.</p>
   </section>
 
-  <!-- ============ 5. TOURS SECTION (with map) ============ -->
   <section class="tours" id="tours">
     <div class="section-header">
       <h2 class="section-title">On the Road</h2>
@@ -1598,7 +1577,7 @@
     
   </section>
 
-  <!-- ============ 5. CONTACT SECTION ============ -->
+
   <section class="contact-section" id="contact">
     <div class="contact-grid">
 
@@ -1630,13 +1609,12 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
   <footer>
-    <span>Fan tribute project &middot; built for learning purposes</span>
-    <span>Built on soul &middot; Coded with curiosity</span>
+    <span>Fan tribute project & built for learning purposes</span>
+    <span>Built on soul & Coded with curiosity</span>
   </footer>
 
-  <!-- Our JavaScript file (handles the navbar scrolling) -->
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -5,22 +5,22 @@
 }
 
 :root {
-  --bg:        #0a0804;  /* page background */
-  --bg-alt:    #130e05;  /* slightly lighter background */
-  --gold:      #c9913d;  /* bright accent gold */
+  --bg:        #0a0804; 
+  --bg-alt:    #130e05;  
+  --gold:      #c9913d; 
   --gold-dim:  #8a6b2e;
   --gold-deep: #5a4520;
   --gold-dark: #3d2e12;
   --gold-ink:  #1e1608;
-  --cream:     #f5e6c4;  /* headline text */
-  --tan:       #e8d5a3;  /* body text */
+  --cream:     #f5e6c4; 
+  --tan:       #e8d5a3; 
   --tan-mid:   #9e8660;
   --tan-muted: #7a6240;
-  --rule:      1px solid #3d2e12; /* thin divider line, reused a lot */
+  --rule:      1px solid #3d2e12; 
 }
 
 html {
-  scroll-behavior: smooth; /* gives a smooth feel even without JS */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,9 +30,6 @@ body {
   min-height: 100vh;
 }
 
-/* =========================================================
-   2. NAVBAR
-   ========================================================= */
 nav {
   display: flex;
   justify-content: space-between;
@@ -60,7 +57,6 @@ nav {
   list-style: none;
 }
 
-/* These are <button> elements styled to look like plain nav text */
 .nav-btn {
   background: none;
   border: none;
@@ -79,7 +75,7 @@ nav {
 }
 
 .nav-toggle {
-  display: none; /* only shown on mobile, see media query below */
+  display: none;
   background: none;
   border: 1px solid var(--gold-dim);
   color: var(--tan);
@@ -88,9 +84,6 @@ nav {
   cursor: pointer;
 }
 
-/* =========================================================
-   3. HERO SECTION
-   ========================================================= */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -135,7 +128,6 @@ nav {
   max-width: 320px;
 }
 
-/* ---- Stats row (8 Grammys / 19M Albums / 1998) ---- */
 .stats-row {
   display: flex;
   gap: 48px;
@@ -163,7 +155,6 @@ nav {
   line-height: 1.6;
 }
 
-/* Used for buttons that should look like the site's link/button style */
 .cta {
   display: inline-flex;
   align-items: center;
@@ -233,9 +224,6 @@ nav {
   color: var(--cream);
 }
 
-/* =========================================================
-   4. SECTION HEADER (reused by About / Discography / Tours)
-   ========================================================= */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -257,9 +245,6 @@ nav {
   color: var(--gold-deep);
 }
 
-/* =========================================================
-   5. ABOUT SECTION
-   ========================================================= */
 .about {
   padding: 56px 48px;
   border-bottom: var(--rule);
@@ -303,9 +288,6 @@ nav {
   color: var(--gold-deep);
 }
 
-/* =========================================================
-   6. DISCOGRAPHY / TRACKLIST SECTION
-   ========================================================= */
 .tracklist-section {
   border-bottom: var(--rule);
   padding: 56px 48px;
@@ -329,7 +311,6 @@ nav {
   border-bottom: 1px solid var(--gold-ink);
 }
 
-/* Play button — just a styled <button>, no JS framework needed */
 .play-btn {
   width: 28px;
   height: 28px;
@@ -343,6 +324,7 @@ nav {
   justify-content: center;
   transition: background 0.2s, color 0.2s;
 }
+
 
 .play-btn:hover {
   background: var(--gold-dim);
@@ -363,7 +345,7 @@ nav {
   letter-spacing: 0.04em;
 }
 
-/* Empty progress bar track + the gold fill that animates while "playing" */
+
 .track-progress {
   height: 3px;
   background: var(--gold-ink);
@@ -385,16 +367,11 @@ nav {
   color: var(--tan-muted);
 }
 
-/* Hides the default white browser audio widget */
 .track audio {
     display: none;
 }
 
-/* ---- Lyrics panel ----
-   Collapsed by default (max-height: 0). JS adds the "open" class,
-   which animates it down to a real height. This is a common pure-CSS
-   trick for accordions: animating to "auto" height doesn't transition
-   smoothly, so we animate max-height instead. */
+
 .lyrics-panel {
   max-height: 0;
   overflow: hidden;
@@ -404,7 +381,7 @@ nav {
 }
 
 .lyrics-panel.open {
-  max-height: 400px; /* generous cap so longer lyrics still fit */
+  max-height: 400px; 
   overflow-y: auto;
 }
 
@@ -417,7 +394,7 @@ nav {
   font-size: 12px;
   line-height: 2;
   color: var(--tan-mid);
-  white-space: pre-line; /* preserves line breaks if you paste lyrics in */
+  white-space: pre-line; 
 }
 
 .lyrics-placeholder code {
@@ -426,12 +403,14 @@ nav {
   padding: 2px 5px;
 }
 
-/* =========================================================
-   7. VIDEOS SECTION
-   ========================================================= */
-/* =========================================================
-   7. VIDEOS SECTION
-   ========================================================= */
+.tip-note {
+  margin-top: 20px;
+  font-size: 10px;
+  color: var(--tan-muted);
+  text-align: right;
+}
+
+
 .videos {
   padding: 56px 48px;
   border-bottom: var(--rule);
@@ -451,7 +430,6 @@ nav {
   overflow: hidden;
 }
 
-/* TARGET BOTH IFRAMES AND LOCAL VIDEOS */
 .video-frame iframe,
 .video-frame video {
   width: 100%;
@@ -460,32 +438,16 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3; /* Elevated layer sits securely over the placeholder */
-}
-
-/* Hidden cleanly behind active media windows */
-.video-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  background: var(--bg-alt);
-  z-index: 1; /* Kept safely underneath */
+  z-index: 3; 
 }
 
 .video-caption {
   margin-top: 12px;
   font-size: 11px;
   color: var(--tan-muted);
+  text-align: start;
 }
-/* =========================================================
-   8. TOURS SECTION (with map)
-   ========================================================= */
+
 .tours {
   padding: 56px 48px;
   border-bottom: var(--rule);
@@ -527,10 +489,6 @@ nav {
   border: 3px solid var(--gold-dim);
 }
 
-/* ---- Leaflet dark theme overrides ----
-   Leaflet's default tiles are light. This filter darkens and tints
-   them gold/black to match the rest of the site, and the popup
-   rules below restyle Leaflet's default white popup boxes. */
 .leaflet-tile-pane {
   filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1) saturate(0.6);
 }
@@ -636,9 +594,6 @@ nav {
   color: var(--cream);
 }
 
-/* =========================================================
-   9. FOOTER
-   ========================================================= */
 footer {
   display: flex;
   justify-content: space-between;
@@ -650,9 +605,6 @@ footer {
   color: var(--gold-dim);
 }
 
-/* =========================================================
-   10. RESPONSIVE (mobile) RULES
-   ========================================================= */
 @media (max-width: 768px) {
   nav { padding: 18px 24px; }
 
@@ -669,7 +621,7 @@ footer {
     gap: 18px;
   }
 
-  .nav-links.open { display: flex; } /* JS toggles this class */
+  .nav-links.open { display: flex; } 
 
   .nav-toggle { display: block; }
 
@@ -709,4 +661,4 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-}
+}   
