@@ -1,0 +1,712 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #0a0804;  /* page background */
+  --bg-alt:    #130e05;  /* slightly lighter background */
+  --gold:      #c9913d;  /* bright accent gold */
+  --gold-dim:  #8a6b2e;
+  --gold-deep: #5a4520;
+  --gold-dark: #3d2e12;
+  --gold-ink:  #1e1608;
+  --cream:     #f5e6c4;  /* headline text */
+  --tan:       #e8d5a3;  /* body text */
+  --tan-mid:   #9e8660;
+  --tan-muted: #7a6240;
+  --rule:      1px solid #3d2e12; /* thin divider line, reused a lot */
+}
+
+html {
+  scroll-behavior: smooth; /* gives a smooth feel even without JS */
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background: var(--bg);
+  color: var(--tan);
+  min-height: 100vh;
+}
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 48px;
+  border-bottom: var(--rule);
+  position: sticky;
+  top: 0;
+  background: rgba(10, 8, 4, 0.95);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+/* These are <button> elements styled to look like plain nav text */
+.nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tan-muted);
+  transition: color 0.2s;
+}
+
+.nav-btn:hover,
+.nav-btn:focus-visible {
+  color: var(--tan);
+}
+
+.nav-toggle {
+  display: none; /* only shown on mobile, see media query below */
+  background: none;
+  border: 1px solid var(--gold-dim);
+  color: var(--tan);
+  font-size: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   3. HERO SECTION
+   ========================================================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  border-bottom: var(--rule);
+}
+
+.hero-left {
+  padding: 64px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: var(--rule);
+}
+
+.overline {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 22px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-body {
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--tan-muted);
+  margin: 24px 0 20px;
+  max-width: 320px;
+}
+
+/* ---- Stats row (8 Grammys / 19M Albums / 1998) ---- */
+.stats-row {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 28;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.stat-label {
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tan-muted);
+  line-height: 1.6;
+}
+
+/* Used for buttons that should look like the site's link/button style */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--gold-dim);
+  color: var(--tan);
+  padding: 13px 26px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.cta:hover {
+  background: var(--gold-dim);
+  color: var(--cream);
+}
+
+.hero-right {
+  background: var(--bg-alt);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.portrait-wrap {
+  position: relative;
+  text-align: center;
+  padding: 40px 48px 48px;
+}
+
+.portrait-frame {
+  width: 260px;
+  height: 290px;
+  margin: 0 auto 28px;
+  border: 1px solid var(--gold-dark);
+  padding: 6px;
+}
+
+.portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.15) brightness(0.95) sepia(60%) saturate(280%) hue-rotate(-8deg);
+}
+
+.album-tag {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.album-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--cream);
+}
+
+/* =========================================================
+   4. SECTION HEADER (reused by About / Discography / Tours)
+   ========================================================= */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: var(--cream);
+}
+
+.section-sub {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+/* =========================================================
+   5. ABOUT SECTION
+   ========================================================= */
+.about {
+  padding: 56px 48px;
+  border-bottom: var(--rule);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--tan-muted);
+}
+
+.about-text em {
+  color: var(--tan);
+  font-style: italic;
+}
+
+.blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding-left: 22px;
+}
+
+.quote-attr {
+  display: block;
+  margin-top: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+/* =========================================================
+   6. DISCOGRAPHY / TRACKLIST SECTION
+   ========================================================= */
+.tracklist-section {
+  border-bottom: var(--rule);
+  padding: 56px 48px;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 36px 1fr 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--gold-ink);
+  transition: background 0.15s;
+}
+
+.track:hover {
+  background: rgba(201, 145, 61, 0.05);
+}
+
+.track:last-child {
+  border-bottom: 1px solid var(--gold-ink);
+}
+
+/* Play button — just a styled <button>, no JS framework needed */
+.play-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--gold-dim);
+  background: transparent;
+  color: var(--gold);
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.play-btn:hover {
+  background: var(--gold-dim);
+  color: var(--cream);
+}
+
+/* When script.js adds this class, the button shows a pause icon look */
+.play-btn.playing {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+}
+
+
+.track-name {
+  font-size: 13px;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+/* Empty progress bar track + the gold fill that animates while "playing" */
+.track-progress {
+  height: 3px;
+  background: var(--gold-ink);
+  position: relative;
+}
+
+.track-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.2s linear;
+}
+
+.track-dur {
+  font-size: 11px;
+  color: var(--tan-muted);
+}
+
+/* Hides the default white browser audio widget */
+.track audio {
+    display: none;
+}
+
+/* ---- Lyrics panel ----
+   Collapsed by default (max-height: 0). JS adds the "open" class,
+   which animates it down to a real height. This is a common pure-CSS
+   trick for accordions: animating to "auto" height doesn't transition
+   smoothly, so we animate max-height instead. */
+.lyrics-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background: var(--bg-alt);
+  border-left: 2px solid var(--gold-dim);
+}
+
+.lyrics-panel.open {
+  max-height: 400px; /* generous cap so longer lyrics still fit */
+  overflow-y: auto;
+}
+
+.lyrics-inner {
+  padding: 24px 28px;
+}
+
+.lyrics-placeholder,
+.lyrics-text {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--tan-mid);
+  white-space: pre-line; /* preserves line breaks if you paste lyrics in */
+}
+
+.lyrics-placeholder code {
+  color: var(--gold);
+  background: var(--gold-ink);
+  padding: 2px 5px;
+}
+
+/* =========================================================
+   7. VIDEOS SECTION
+   ========================================================= */
+/* =========================================================
+   7. VIDEOS SECTION
+   ========================================================= */
+.videos {
+  padding: 56px 48px;
+  border-bottom: var(--rule);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-alt);
+  border: 1px solid var(--gold-dark);
+  overflow: hidden;
+}
+
+/* TARGET BOTH IFRAMES AND LOCAL VIDEOS */
+.video-frame iframe,
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3; /* Elevated layer sits securely over the placeholder */
+}
+
+/* Hidden cleanly behind active media windows */
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  background: var(--bg-alt);
+  z-index: 1; /* Kept safely underneath */
+}
+
+.video-caption {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--tan-muted);
+}
+/* =========================================================
+   8. TOURS SECTION (with map)
+   ========================================================= */
+.tours {
+  padding: 56px 48px;
+  border-bottom: var(--rule);
+}
+
+.tour-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+}
+
+.tour-list {
+  list-style: none;
+}
+
+.tour-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid var(--gold-ink);
+  font-size: 12px;
+}
+
+.tour-list li:last-child {
+  border-bottom: 1px solid var(--gold-ink);
+}
+
+.tour-city {
+  color: var(--cream);
+}
+
+.tour-date {
+  color: var(--gold-deep);
+}
+
+.map-wrap {
+  min-height: 200px;
+  height: 200px;
+  border: 3px solid var(--gold-dim);
+}
+
+/* ---- Leaflet dark theme overrides ----
+   Leaflet's default tiles are light. This filter darkens and tints
+   them gold/black to match the rest of the site, and the popup
+   rules below restyle Leaflet's default white popup boxes. */
+.leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1) saturate(0.6);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-alt);
+  color: var(--cream);
+  border: 1px solid var(--gold-dark);
+  border-radius: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  z-index: 2;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-alt);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--gold);
+}
+
+.mv-note {
+  margin-top: 16px;
+  font-size: 10px;
+  color: var(--tan-muted);
+}
+
+.contact-section {
+  padding: 56px 48px;
+  border-bottom: var(--rule);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 24px;
+}
+
+.contact-form label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-top: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--bg-alt);
+  border: 1px solid var(--gold-dark);
+  color: var(--tan);
+  padding: 10px 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 1px solid var(--gold);
+}
+
+.contact-form button {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.connect-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.connect-label {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+
+.social-link {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--tan-mid);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gold-ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.social-link:last-child {
+  border-bottom: none;
+}
+
+.social-link:hover {
+  color: var(--cream);
+}
+
+/* =========================================================
+   9. FOOTER
+   ========================================================= */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px; 
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+/* =========================================================
+   10. RESPONSIVE (mobile) RULES
+   ========================================================= */
+@media (max-width: 768px) {
+  nav { padding: 18px 24px; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg);
+    border-bottom: var(--rule);
+    padding: 16px 24px;
+    gap: 18px;
+  }
+
+  .nav-links.open { display: flex; } /* JS toggles this class */
+
+  .nav-toggle { display: block; }
+
+  .hero,
+  .about-grid,
+  .tour-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    gap: 28px;
+  }
+
+  .hero-left { border-right: none; padding: 48px 24px; }
+  .hero-right { border-top: var(--rule); }
+  .hero-title { font-size: 40px; }
+
+  .about,
+  .tracklist-section,
+  .tours,
+  .contact-section {
+    padding: 40px 24px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 20px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
