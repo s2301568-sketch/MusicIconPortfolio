@@ -5,22 +5,18 @@
 }
 
 :root {
-  --bg:        #0a0804; 
-  --bg-alt:    #130e05;  
-  --gold:      #c9913d; 
+  --bg:        #0a0804;
+  --bg-alt:    #130e05;
+  --gold:      #c9913d;
   --gold-dim:  #8a6b2e;
   --gold-deep: #5a4520;
   --gold-dark: #3d2e12;
   --gold-ink:  #1e1608;
-  --cream:     #f5e6c4; 
-  --tan:       #e8d5a3; 
+  --cream:     #f5e6c4;
+  --tan:       #e8d5a3;
   --tan-mid:   #9e8660;
   --tan-muted: #7a6240;
-  --rule:      1px solid #3d2e12; 
-}
-
-html {
-  scroll-behavior: smooth;
+  --rule:      1px solid #3d2e12;
 }
 
 body {
@@ -34,13 +30,17 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 48px;
+  padding: 15px 48px;
   border-bottom: var(--rule);
   position: sticky;
   top: 0;
   background: rgba(10, 8, 4, 0.95);
   backdrop-filter: blur(6px);
   z-index: 1000;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .logo {
@@ -67,27 +67,18 @@ nav {
   text-transform: uppercase;
   color: var(--tan-muted);
   transition: color 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.nav-btn:hover,
-.nav-btn:focus-visible {
-  color: var(--tan);
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: 1px solid var(--gold-dim);
-  color: var(--tan);
-  font-size: 18px;
-  padding: 6px 10px;
-  cursor: pointer;
+.nav-btn:hover {
+  color: var(--cream);
 }
 
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 500px;
+  min-height: 600px;
   border-bottom: var(--rule);
 }
 
@@ -156,21 +147,20 @@ nav {
 }
 
 .cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  background: transparent;
   border: 1px solid var(--gold-dim);
   color: var(--tan);
   padding: 13px 26px;
   font-family: 'Space Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
   cursor: pointer;
-  background: transparent;
   transition: background 0.2s, color 0.2s;
   margin-top: 20px;
   align-self: flex-start;
+  text-decoration: none;
 }
 
 .cta:hover {
@@ -198,7 +188,7 @@ nav {
   height: 290px;
   margin: 0 auto 28px;
   border: 1px solid var(--gold-dark);
-  padding: 6px;
+  padding: 10px;
 }
 
 .portrait-frame img {
@@ -325,26 +315,22 @@ nav {
   transition: background 0.2s, color 0.2s;
 }
 
-
 .play-btn:hover {
   background: var(--gold-dim);
   color: var(--cream);
 }
 
-/* When script.js adds this class, the button shows a pause icon look */
 .play-btn.playing {
   background: var(--gold);
   color: var(--bg);
   border-color: var(--gold);
 }
 
-
 .track-name {
   font-size: 13px;
   color: var(--cream);
   letter-spacing: 0.04em;
 }
-
 
 .track-progress {
   height: 3px;
@@ -354,10 +340,7 @@ nav {
 
 .track-progress-fill {
   position: absolute;
-  left: 0;
-  top: 0;
   height: 100%;
-  width: 0%;
   background: var(--gold);
   transition: width 0.2s linear;
 }
@@ -371,7 +354,6 @@ nav {
     display: none;
 }
 
-
 .lyrics-panel {
   max-height: 0;
   overflow: hidden;
@@ -381,7 +363,7 @@ nav {
 }
 
 .lyrics-panel.open {
-  max-height: 400px; 
+  max-height: 400px;
   overflow-y: auto;
 }
 
@@ -394,7 +376,7 @@ nav {
   font-size: 12px;
   line-height: 2;
   color: var(--tan-mid);
-  white-space: pre-line; 
+  white-space: pre-line;
 }
 
 .lyrics-placeholder code {
@@ -410,7 +392,6 @@ nav {
   text-align: right;
 }
 
-
 .videos {
   padding: 56px 48px;
   border-bottom: var(--rule);
@@ -422,6 +403,12 @@ nav {
   gap: 28px;
 }
 
+.video-grid {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .video-frame {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -430,7 +417,6 @@ nav {
   overflow: hidden;
 }
 
-.video-frame iframe,
 .video-frame video {
   width: 100%;
   height: 100%;
@@ -438,14 +424,26 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3; 
+  z-index: 3;
 }
 
 .video-caption {
-  margin-top: 12px;
-  font-size: 11px;
+  margin-top: 20px;
+  font-size: 20px;
+  color: var(--cream);
+  text-align: center;
+}
+
+.mv-note {
+  margin-top: 16px;
+  font-size: 10px;
   color: var(--tan-muted);
-  text-align: start;
+  font-style: italic;
+}
+
+.mv-note-label {
+  color: var(--tan-mid);
+  font-style: normal;
 }
 
 .tours {
@@ -455,7 +453,6 @@ nav {
 
 .tour-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
   gap: 40px;
 }
 
@@ -480,41 +477,31 @@ nav {
 }
 
 .tour-date {
-  color: var(--gold-deep);
+  color: var(--cream);
 }
 
 .map-wrap {
-  min-height: 200px;
-  height: 200px;
+  min-height: 360px;
+  height: 360px;
   border: 3px solid var(--gold-dim);
+  overflow: hidden;
 }
 
-.leaflet-tile-pane {
+.map-wrap iframe {
+  display: block;
   filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1) saturate(0.6);
 }
 
-.leaflet-popup-content-wrapper {
-  background: var(--bg-alt);
-  color: var(--cream);
-  border: 1px solid var(--gold-dark);
-  border-radius: 0;
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  z-index: 2;
-}
-
-.leaflet-popup-tip {
-  background: var(--bg-alt);
-}
-
-.leaflet-container a.leaflet-popup-close-button {
-  color: var(--gold);
-}
-
-.mv-note {
-  margin-top: 16px;
+.map-tip{
   font-size: 10px;
   color: var(--tan-muted);
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.map-tip-label{
+  color: var(--tan-mid);
+  font-style: normal;
 }
 
 .contact-section {
@@ -598,10 +585,9 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 48px; 
+  padding: 20px 48px;
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold-dim);
 }
-

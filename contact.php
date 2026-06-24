@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['name'])) {
 
     $name    = htmlspecialchars(trim($_POST['name'] ?? ''));
     $email   = htmlspecialchars(trim($_POST['email'] ?? ''));
@@ -19,13 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $entry = sprintf(
-            "[%s] %s <%s>: %s\n",
-            date('Y-m-d H:i:s'),
-            $name,
-            $email,
-            $message
-        );
+        $entry = "[" . date('Y-m-d H:i:s') . "] " . $name . " <" . $email . ">: " . $message . "\n";
 
         file_put_contents(__DIR__ . '/messages.txt', $entry, FILE_APPEND);
 
@@ -74,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <p style="margin-top: 24px;">
-      <a class="cta" href="index.html" style="text-decoration:none; display:inline-block;">Back to Home</a>
+      <a class="cta" href="index.html" style="text-decoration:none; display:inline-block;">BACK TO HOME</a>
     </p>
   </section>
 

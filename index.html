@@ -11,21 +11,18 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
   <nav>
     <div class="logo">Lauryn Hill</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
     <ul class="nav-links" id="navLinks">
-      <li><button class="nav-btn" data-target="hero">Home</button></li>
-      <li><button class="nav-btn" data-target="about">About</button></li>
-      <li><button class="nav-btn" data-target="discography">Discography</button></li>
-      <li><button class="nav-btn" data-target="videos">Videos</button></li>
-      <li><button class="nav-btn" data-target="tours">Tours</button></li>
-      <li><button class="nav-btn" data-target="contact">Contact</button></li>
+      <li><a class="nav-btn" href="#hero">Home</a></li>
+      <li><a class="nav-btn" href="#about">About</a></li>
+      <li><a class="nav-btn" href="#discography">Discography</a></li>
+      <li><a class="nav-btn" href="#videos">Videos</a></li>
+      <li><a class="nav-btn" href="#tours">Tours</a></li>
+      <li><a class="nav-btn" href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -57,9 +54,9 @@
         </div>
       </div>
 
-      <button class="cta" id="heroCta">
-        ▶ Listen Now
-      </button>
+      <a class="cta" href="#discography" id="heroCta">
+        ▶ LISTEN NOW
+      </a>
 
     </div> <div class="hero-right">
       <div class="portrait-wrap">
@@ -97,7 +94,7 @@
   <section class="tracklist-section" id="discography">
     <div class="section-header">
       <h2 class="section-title">The Miseducation of Lauryn Hill</h2>
-      <span class="section-sub">1998 | 14 Tracks</span>
+      <span class="section-sub">Discography | 1998 | 14 Tracks</span>
     </div>
     <div class="tracklist">
       <div class="track" data-track="1">
@@ -1512,48 +1509,24 @@
 
   <section class="videos" id="videos">
     <div class="section-header">
-      <h2 class="section-title">Performances</h2>
+      <h2 class="section-title">Music Video</h2>
       <span class="section-sub">Music Videos & Live Sets</span>
     </div>
  
-    <div class="video-grid">
+    <div class="video-grid video-grid--single">
       <div class="video-card">
         <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/T6QKqFPRZSA"
+          <video
+            src="Doo wop.mp4"
             title="Doo Wop (That Thing) — Official Video"
-            loading="lazy"
-            allowfullscreen
-        ></iframe>
+            controls
+            preload="metadata"
+          ></video>
         </div>
         <p class="video-caption">Doo Wop (That Thing) — Official Video</p>
       </div>
-
-      <div class="video-card">
-        <div class="video-frame">
-         <iframe
-          src="https://www.youtube.com/embed/cE-bnWqLqxE"
-          title="Ex-Factor — Official Video"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
-        </div>
-        <p class="video-caption">Ex-Factor — Official Video</p>
-      </div>
-
-      <div class="video-card">
-        <div class="video-frame">
-          <iframe
-          src="https://www.youtube.com/embed/4SDCuFLAF78"
-          title="Lauryn Hill - MTV Unplugged No. 2.0 (Full Show)"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
-        </div>
-        <p class="video-caption">MTV Unplugged No. 2.0 — Live</p>
-      </div>
     </div>
-    <p class="mv-note">Disclaimer: This site claims no ownership over the materials used and operates under the Fair Use guidelines 
+    <p class="mv-note"><span class="mv-note-label">Disclaimer: </span>This site claims no ownership over the materials used and operates under the Fair Use guidelines 
     of copyright law for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. 
     If you are the rightful owner of any content displayed here and wish for it to be removed, please contact the administrator.</p>
   </section>
@@ -1572,8 +1545,17 @@
         <li><span class="tour-city">Chicago, IL</span><span class="tour-date">Oct 14, 2026</span></li>
       </ul>
   
-      <div class="map-wrap" id="tourMap"></div>
+      <div class="map-wrap" id="tourMap">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=186Q3wEMJPfY4lIhpGm9xYBtwgy_1Z2A&ehbc=2E312F"
+          width="100%"
+          height="100%"
+          style="border:0"
+          title="Tour stops map">
+        </iframe>
+      </div>
     </div>
+     <p class="map-tip"><span class="map-tip-label">Tip: </span>Please use the map on the right.</p>
     
   </section>
 
@@ -1581,7 +1563,6 @@
   <section class="contact-section" id="contact">
     <div class="contact-grid">
 
-      <!-- Contact form: sent to contact.php with PHP, as requested -->
       <div class="contact-form-wrap">
         <h2 class="section-title">Get in Touch</h2>
         <form action="contact.php" method="POST" class="contact-form">
@@ -1594,17 +1575,16 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" required></textarea>
 
-          <button type="submit" class="cta">Send Message</button>
+          <button type="submit" class="cta">SEND MESSAGE</button>
         </form>
       </div>
 
-      <!-- Social links -->
       <div class="connect-section">
         <p class="connect-label">Follow the frequency</p>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-link">Instagram</a>
-        <a href="https://www.youtube.com" target="_blank" rel="noopener" class="social-link">YouTube</a>
-        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="social-link">Spotify</a>
-        <a href="mailto:contact@example.com" class="social-link">Email</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-link">INSTAGRAM</a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener" class="social-link">YOUTUBE</a>
+        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="social-link">SPOTIFY</a>
+        <a href="mailto:contact@example.com" class="social-link">EMAIL</a>
       </div>
     </div>
   </section>
